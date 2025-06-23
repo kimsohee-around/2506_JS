@@ -1,0 +1,19 @@
+과제 :  
+1:1 카톡 - [김땡땡] 이름 폴더 안에 파일 2개 넣어서 압축 후 전송
+이메일 - 압축한 파일 koreait.sec2020@gmail.com 로 제출하기
+
+1. 웹서버가  응답으로 HTML 문서를 보내줍니다.
+2. 브라우저는 HTML 문서를 받아서 DOM(태그 요소를 자료구조로 표현) 생성  => 화면출력을 위한 렌더링
+3. CSS 를 위한 객체 모델을 구성하여 스타일 적용
+4. 자바스크립트를 실행한다. (head 태그의 script 는 body 를 만들기 전에 실행-*주의)
+
+
+// textContent 속성 : 시작태크와 종료 태그 사이의 텍스트
+// innerHTML 속성 :                               요소(태그가 포함)
+
+    greet.addEventListener('click',function(){
+                                  // 함수(메소드)안의 함수 => 콜백함수.이름없이 사용
+             const name = document.getElementById('client').value
+             alert('Hello, ' + name )                     
+        } //함수 끝
+    ) // addEventListener 끝    

@@ -40,7 +40,7 @@
                 <button id="down">👇</button><button id="left">👈</button>
            </div>
            <!-- 두번째 중앙 박스 -->
-           <div class="main">
+           <div class="main" id="main">
                 <!-- 컨트롤 하고 싶은 박스 -->
                 <div id="box"></div>
            </div>
@@ -48,11 +48,17 @@
     <script>
          const container = document.getElementById('container')
          const box = document.getElementById('box')
-
+         const parent = document.getElementById('main')
          document.body.addEventListener('keydown', e => {
             console.log('이벤트정보',e)
             const currentLeft=box.offsetLeft   //현재 box의 위치
             const currentTop=box.offsetTop
+            //현재 box의 크기
+            const currentWidth = box.offsetWidth
+            const currentHeight = box.offsetHeight
+            //부모 main 요소의 크기
+            const parentWidth = parent.offsetWidth
+            const parentHeight = parent.offsetHeight
             switch(e.key){   //눌려진 키보드 키를 검사
                 case 'ArrowUp':
                   console.log('방향 위를 눌렀습니다.')
@@ -62,11 +68,15 @@
                   break
                 case 'ArrowRight':
                   console.log('방향 오른쪽을 눌렀습니다.')
-                  box.style.left = (currentLeft + 10) + 'px'
+                  if(currentLeft + currentWidth +10 < parentWidth){
+                    box.style.left = (currentLeft + 10) + 'px'
+                  }
                   break;
                 case 'ArrowDown':
                   console.log('방향 아래를 눌렀습니다.')
-                     box.style.top = (currentTop + 10) + 'px'
+                  if(currentTop - 100 + currentHeight +10 < parentHeight )  {
+                      box.style.top = (currentTop + 10) + 'px'
+                    }
                   break;
                 case 'ArrowLeft':
                   console.log('방향 왼쪽을 눌렀습니다.')

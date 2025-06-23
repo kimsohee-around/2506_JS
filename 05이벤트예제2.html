@@ -54,21 +54,27 @@
             const currentLeft=box.offsetLeft   //현재 box의 위치
             const currentTop=box.offsetTop
             switch(e.key){   //눌려진 키보드 키를 검사
-              case 'ArrowUp':
-                console.log('방향 위를 눌렀습니다.')
-                break;
-              case 'ArrowRight':
-                console.log('방향 오른쪽을 눌렀습니다.')
-                break;
-              case 'ArrowDown':
-                console.log('방향 아래를 눌렀습니다.')
-                break;
-              case 'ArrowLeft':
-                console.log('방향 왼쪽을 눌렀습니다.')
-                break;
-            }
-
-
+                case 'ArrowUp':
+                  console.log('방향 위를 눌렀습니다.')
+                  if(currentTop-10 > 100) { 
+                    box.style.top = (currentTop - 10) + 'px'
+                  }
+                  break
+                case 'ArrowRight':
+                  console.log('방향 오른쪽을 눌렀습니다.')
+                  box.style.left = (currentLeft + 10) + 'px'
+                  break;
+                case 'ArrowDown':
+                  console.log('방향 아래를 눌렀습니다.')
+                     box.style.top = (currentTop + 10) + 'px'
+                  break;
+                case 'ArrowLeft':
+                  console.log('방향 왼쪽을 눌렀습니다.')
+                  if(currentLeft - 10 > 0){
+                    box.style.left = (currentLeft - 10) + 'px'
+                  }
+                  break;
+              }
          })
 
          container.addEventListener('click',

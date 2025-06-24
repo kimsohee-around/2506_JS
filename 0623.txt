@@ -56,6 +56,11 @@
                       	      console.log('박스가 커집니다.(너비)')
 		      break;
 	      }
+============================================
+html, body { font-size : 10px; }     
+ 
+div { font-size : 1.6rem }     //16px
+ 
 
 
 

@@ -28,3 +28,11 @@ function muliply(num1, num2) {
 muliply(23, 56)    //1288   // 23, 56 은 함수 실행에 필요한 입력값
 muliply(111, 23)   //2553
 // 함수 유형 4:   인자 있다. 리턴 있다.
+function div(num1, num2) {
+  return num1 / num2
+}
+
+result = div(77, 13)
+console.log('나누기:', result)
+console.log('나누기:', div(77, 13))
+console.log('나눈 결과 소수점:', result.toFixed(3))

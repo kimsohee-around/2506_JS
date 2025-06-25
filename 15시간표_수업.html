@@ -27,19 +27,20 @@
     th {
       color: white;
       background-color: tomato;
+      width: 100px;
       /* text-align: center; */
     }
 
     td {
       text-align: center;
-      width: 17%;
+      width: 100px;
       padding: 5px;
     }
   </style>
 </head>
 
 <body>
-  <h3>첫 번째 시간표</h3>
+  <h3 id="title">오늘 시간표</h3>
   <table>
     <tr id="time">
       <th>TIME</th>
@@ -59,6 +60,7 @@
     </tr>
   </table>
   <button id="tomorrow">내일 시간표</button>
+  <button id="today">오늘 시간표</button>
   <script>
     // 오늘 시간표 - time, todo 배열 선언
     const time = ['09:00', '11:00', '12:30', '14:00', '16:45']
@@ -69,11 +71,33 @@
     const todo2 = ['수업', '회의', '점심식사', '운동', '업무', '친구약속']
 
     const tom = document.getElementById('tomorrow')
+    const today = document.getElementById('today')
     const timeTr = document.getElementById('time')
     const todoTr = document.getElementById('todo')
+    const title = document.getElementById('title')
+
+    today.addEventListener('click', function () {
+      timeTr.innerHTML = '<th>TIME</th>'
+      todoTr.innerHTML = '<th>TODO</th>'
+      title.textContent = '오늘 시간표'
+      for (let t of time) {
+        const td = document.createElement('td')
+        td.textContent = t
+        timeTr.appendChild(td)
+      }
+      for (let t of todo) {
+        const td = document.createElement('td')
+        td.textContent = t
+        todoTr.appendChild(td)
+      }
+    })
+
+
+
     tom.addEventListener('click', function () {
       timeTr.innerHTML = '<th>TIME</th>'
       todoTr.innerHTML = '<th>TODO</th>'
+      title.textContent = '내일 시간표'
       for (let t of time2) {
         const td = document.createElement('td')
         td.textContent = t
@@ -85,6 +109,8 @@
         todoTr.appendChild(td)
       }
     })
+
+
 
     // 오늘 시간표 - 실제 table에 들어갈 timeTB, todoTB 배열 선언
     // 화면 로딩시 바로 보임.

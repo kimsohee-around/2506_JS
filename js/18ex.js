@@ -63,3 +63,26 @@ for (let m of members) {
     console.log(m[key])
   }
 }
+
+//5) 배열의 forEach 메소드 - 배열의 요소를 '하나씩 가져다가' 특정한 함수를 실행.
+//                         ㄴ 메소드의 인자(입력)는 함수.
+members.forEach(
+  function (item) {        // '하나씩 가져온' 요소를 item 변수에 저장
+    console.log('////')
+    console.log(item.address)
+  }
+)
+// 위의 코드를 '화살표 함수로 변경' 가능함.
+members.forEach(
+  (item) => {        // '하나씩 가져온' 요소를 item 변수에 저장
+    console.log('****')
+    console.log(item.address)
+  }
+)
+// 메소드의 입력(인자)인 함수를 먼저 정의하고 함수이름 사용
+function print(item) {        // '하나씩 가져온' 요소를 item 변수에 저장
+  console.log('/*/')
+  console.log(item.address)
+}
+
+members.forEach(item => print(item))      // 많이 쓰이는 형식

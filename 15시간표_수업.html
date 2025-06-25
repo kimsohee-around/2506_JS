@@ -43,23 +43,19 @@
   <table>
     <tr id="time">
       <th>TIME</th>
-      <div id="timeBody"> <!-- td 들을 그룹화 -->
-        <td class="tm"></td>
-        <td class="tm"></td>
-        <td class="tm"></td>
-        <td class="tm"></td>
-        <td class="tm"></td>
-      </div>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr id="todo">
       <th>TODO</th>
-      <div id="todoBody">
-        <td class="to"></td>
-        <td class="to"></td>
-        <td class="to"></td>
-        <td class="to"></td>
-        <td class="to"></td>
-      </div>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </table>
   <button id="tomorrow">내일 시간표</button>
@@ -73,20 +69,20 @@
     const todo2 = ['수업', '회의', '점심식사', '운동', '업무', '친구약속']
 
     const tom = document.getElementById('tomorrow')
-    const timeBody = document.getElementById('timeBody')
-    const todoBody = document.getElementById('todoBody')
+    const timeTr = document.getElementById('time')
+    const todoTr = document.getElementById('todo')
     tom.addEventListener('click', function () {
-      timeBody.innerHTML = ''
-      todoBody.innerHTML = ''
+      timeTr.innerHTML = '<th>TIME</th>'
+      todoTr.innerHTML = '<th>TODO</th>'
       for (let t of time2) {
         const td = document.createElement('td')
         td.textContent = t
-        timeBody.appendChild(td)
+        timeTr.appendChild(td)
       }
       for (let t of todo2) {
         const td = document.createElement('td')
         td.textContent = t
-        todoBody.appendChild(td)
+        todoTr.appendChild(td)
       }
     })
 

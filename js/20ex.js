@@ -7,7 +7,7 @@ const todo = ['수업', '과제', '점심식사', '주간회의', '자료조사'
 */
 // 비어있는 배열에 새로운 요소를 추가 : push() 메소드 활용
 const schedule = []
-for (let i = 0; i < time.length; i++) {
+for (let i = 0; i < time.length; i++) {    // for(let i in time) -> 0,1,2 배열 인덱스 i 저장 (비추)
   let newItem = { time: time[i], todo: todo[i] }
   // 속성이름: 값
   schedule.push(newItem)

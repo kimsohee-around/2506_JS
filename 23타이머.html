@@ -88,7 +88,6 @@
       }
 
       btnToggle(true)    // 시작 비활성화, 중지 활성화
-
       updateCount(timeSeconds)
       timerInterval = window.setInterval(function () {
         timeSeconds = timeSeconds - 1
@@ -107,6 +106,7 @@
       document.getElementById('countdown').textContent
         //  = timeSeconds 를 2자리 문자열로 출력하기
         = `남은 시간 : ⏰ 00:${timeSeconds.toString().padStart(2, '0')}`
+      document.getElementById('second').value = timeSeconds
     }
 
     document.getElementById('closeBtn').addEventListener('click', function () {

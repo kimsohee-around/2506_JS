@@ -25,6 +25,7 @@
     .modal-content {
       background-color: white;
       margin: 20% auto;
+      padding: 40px;
       width: 300px;
       text-align: center;
       border-radius: 8px;
@@ -38,6 +39,8 @@
   <div id="startDiv"></div>
   <div>현재 시간:</div>
   <div id="nowDiv"></div>
+  <button id="stopBtn">시간출력 중지</button>
+
   <!-- 처음 화면에는 안보이는 요소  -->
   <div id="sampleModal" class="modal">
     <div class="modal-content">
@@ -61,9 +64,14 @@
       document.getElementById('sampleModal').classList.add('show')  //클래스 속성에 추가
     }, 3000)   //3000ms 는 3초
 
-    window.setInterval(function () {
+    // 인터벌 객체를 변수에 할당하여 인터벌 동작을 중지할 때 사용합니다.  
+    const testInterval = window.setInterval(function () {
       nowDiv.textContent = new Date()
     }, 1000)
+
+    document.getElementById('stopBtn').addEventListener('click', function () {
+      window.clearInterval(testInterval)   // 인터벌 동작을 중지(브라우저의 타이머 제거)
+    })  
   </script>
 </body>
 

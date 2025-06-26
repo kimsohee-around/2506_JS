@@ -72,9 +72,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const newItem = { time: newTime, todo: newTodo }  //새로운 일정 객체 생성
     // printRow 실행하여 tr 전달 받기 - 새로운 일정 tr (행) 만들기
     const newTr = printRow(newItem)
-    // newTr 을 table에 추가
-    table.appendChild(newTr)
+
     schedule.push(newItem)    // 스케줄 배열에 새로운 일정 추가
+
+    // 스케줄 배열을 time 속성 순서로 정렬(난이도:최상)
+    schedule.sort((a, b) => a.time.localeCompare(b.time))
+    //  ㄴ a,b 는 2개의 객체. 2개의 객체 time 속성비교.
+    //  ㄴ a.todo.localeCompare(b.todo)  는 todo 속성값으로 정렬
+
+    // newTr 을 table에 추가  -> 정렬된 schedule 배열로 table 다시만들기(변경 필요)
+    table.appendChild(newTr)  // ?? 🔥 mission
+
     console.log('새 스케줄 추가 후 : ', schedule)
   }) // newBtn.addEventListener 의 끝
 

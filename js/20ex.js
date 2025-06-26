@@ -12,7 +12,7 @@ for (let i = 0; i < time.length; i++) {
   // 속성이름: 값
   schedule.push(newItem)
 }
-
+console.log(schedule)
 /*
 const schedule = [
   { time: '09:00', todo: '수업' },
@@ -30,23 +30,12 @@ function printRow(item) {        // '하나씩 가져온' 요소를 item 변수�
   for (let key in item) {    //객체 모든 속성을 순회
     // console.log(item[key])
     const td = document.createElement('td')
-    td.textContent = item[key]
+    td.textContent = item[key]   // 속성 이름 key 에 저장. key 속성의 값을 가져옴.
     tr.appendChild(td)
   }
 
   return tr
 }
-
-const newBtn = document.getElementById('newBtn')
-newBtn.addEventListener('click', () => {
-  // 입력값 가져와서 newItem 객체 만들기
-
-  // printRow 실행하여 tr 전달 받기
-
-  // tr을 table에 추가
-
-})
-
 
 
 
@@ -59,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // table 요소를 만들어서 첫번째 줄(tr)에 제목을 넣어 table에 추가
   const table = document.createElement('table')
   table.innerHTML = `<tr>
-        <th>이름</th>
-        <th>나이</th>
+        <th>TIME</th>
+        <th>TODO</th>
         </tr>`
   // table 을 root 요소에 추가하기        
   root.appendChild(table)
@@ -72,4 +61,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // console.log(trResult)
     table.appendChild(trResult)
   })
-})
+
+  // 'DOMContentLoaded' 이벤트 사용할 때에는 모든 이벤트 리스너를 
+  // 'DOMContentLoaded' 이벤트 안에 작성합니다.
+  const newBtn = document.getElementById('newBtn')
+  newBtn.addEventListener('click', () => {
+    // 입력값 가져와서 newItem 객체 만들기
+    const newTime = document.getElementById('newTime').value
+    const newTodo = document.getElementById('newTodo').value
+    const newItem = { time: newTime, todo: newTodo }  //새로운 일정 객체 생성
+    // printRow 실행하여 tr 전달 받기 - 새로운 일정 tr (행) 만들기
+    const newTr = printRow(newItem)
+    // newTr 을 table에 추가
+    table.appendChild(newTr)
+    schedule.push(newItem)    // 스케줄 배열에 새로운 일정 추가
+    console.log('새 스케줄 추가 후 : ', schedule)
+  }) // newBtn.addEventListener 의 끝
+
+}) //document.addEventListener 의 끝

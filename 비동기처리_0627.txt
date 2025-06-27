@@ -10,8 +10,10 @@
 처리하기 위한 핵심 개념입니다.
 
 fetch, async/await, Promise 가 관련된 문법입니다.
+비동기 함수에는 Promise 기반 O vs Promise 기반 X
+        Promise 기반 O : fetch , Promise 기반 X : setTimeout, setInterval
 
-✅ 1. Promise (ES6)
+✅ 1. Promise (ES6 버전)
 
 미래에 완료될 수 있는 비동기 작업의 결과를 담는 객체 (비동기 작업을 객체로 표현)
 세 가지 상태를 가짐:
@@ -32,7 +34,7 @@ myPromise
   .then(result => console.log(result)) // 성공 처리
   .catch(error => console.error(error)); // 실패 처리
 
-🔍 then과 catch는 Promise 객체에서만 사용 가능한 메서드입니다.
+🔍 then과 catch는 Promise 객체에서만 사용 가능한 메서드입니다. 🔍 
 1. then()
 Promise가 성공(fulfilled)했을 때 실행할 콜백을 등록하는 메서드
 반환값도 Promise이므로 체이닝(.then().then())도 가능
@@ -42,7 +44,7 @@ Promise가 실패(rejected)했을 때 실행할 콜백을 등록
 .then(...).catch(...) 패턴으로 사용
 
 
-✅ 2. fetch (내장 API)
+✅ 2. fetch (내장 API-함수)
 브라우저에서 제공하는 비동기 HTTP 통신 함수
 Promise 기반으로 동작
 

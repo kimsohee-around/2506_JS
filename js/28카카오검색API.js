@@ -10,7 +10,7 @@ const headers = {
   //API 사용 인증을 위한 key 필수
 }
 const query = '트와이스'
-const url = `https://dapi.kakao.com/v2/search/image?query=${query}`
+const url = `https://dapi.kakao.com/v2/search/image?query=${query}&sort=recency`
 
 // 요청을 보내는 JS 명령어
 let result

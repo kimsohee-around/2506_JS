@@ -20,7 +20,7 @@ fetch(url, headers)                                // 요청 url 주소로 보�
     return response.json()                      // 응답의 body(데이터본문) 를 JS 객체로 변환
   })
   .then(data => {                          // 위의 then 에서 리턴한 값을 콜백함수 인자 data 에 저장
-    result = data
+    result = data 
     console.log('data :', data)
 
     console.log('데이터 분해 1 :', data.documents[0])

@@ -20,24 +20,34 @@ console.log(fruits.toString())   // fruits 자체가 바뀝니다.
 
 //2. slice() : 배열의 특정 부분을 자르기하여 새로운 배열을 생성
 fruits = ['banana', 'mango', 'orange', 'apple']
-const myfruits = fruits.slice(1, 3)    // 메소드 결과 리턴이 있다. 리턴이 중요.
+let myfruits = fruits.slice(1, 3)    // 메소드 결과 리턴이 있다. 리턴이 중요.
 // 1: 시작위치 인덱스
 // 3: 마지막 위치 인덱스(포함 X)
 // 자르기한 배열의 갯수 = 3-1 = 2개
 console.log(fruits.toString())     // fruits 는 변화가 없음.
 console.log(myfruits.toString())   // myfruits 는 새로운 배열
 
+// slice() 의 입력값이 1개 인 경우 - 마지막 인덱스 생략(끝까지)
+myfruits = fruits.slice(1)
+console.log('⚡', myfruits.toString())
+// slice() 의 입력값이 음수 인 경우 - 맨뒤 -1 부터 접근
+myfruits = fruits.slice(-3, -1)
+console.log('⚡', myfruits.toString())   // 'mango', 'orange'
+
+myfruits = fruits.slice(-1)
+console.log('⚡', myfruits.toString())   // 'apple'
+
 //3. indexOf()
 fruits = ["Apple", "Orange", "Apple", "Mango"];
 let position = fruits.indexOf("Apple")
-console.log('Apple 의 첫번쨰 위치:', position)
+console.log('Apple 의 첫번쨰 위치:', position)   //0
 //4. lastIndexOf()
-position = fruits.lastIndexOf("Apple")
+position = fruits.lastIndexOf("Apple")     // 2
 console.log('Apple 의 마지막 위치:', position)
-position = fruits.indexOf("Lemon")  // 없는 값
+position = fruits.indexOf("Lemon")  // 없는 값. -1
 console.log('Lemon 의 첫번쨰 위치:', position)
 //5. includes()
-let result = fruits.includes("Mango");
+let result = fruits.includes("Mango");   // 값의 존재 여부(참 또는 거짓)
 console.log("Mango 있음?", result)
 result = fruits.includes("Lemon");
 console.log("Lemon 있음?", result)

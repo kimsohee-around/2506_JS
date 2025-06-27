@@ -43,4 +43,51 @@ console.log(`date2 날짜와 시간 : ${date2}`)
 date3 = new Date('2025-06-27T18:30:00Z')   // 표준시 설정
 console.log(`date3 날짜와 시간 : ${date3}`)
 
-// 
+// locale 정보 확인 => ko-KR (언어-국가)
+// 'en-US' , 'ja-JP' , 'fr-FR' ,'en-GB' 
+console.log(`참고 : locale 정보 ${navigator.language}`)
+// 28/06/2025 03:30:00 
+// 지정된 로케일 정보로 출력 형식이 달라진다.
+console.log(`참고: 프랑스 시간 ${date2.toLocaleString('fr-FR')}`)
+console.log(`참고: 미국 시간 ${date2.toLocaleString('en-US')}`)
+
+// 날짜를 이용한 계산
+date1 = new Date()
+date2 = new Date('2025-12-25')
+
+let diff = date2 - date1
+console.log(`날짜의 뺄셈 : ${diff} ms`)  // 단위: ms => 15631852171
+
+let oneday = 24 * 60 * 60 * 1000
+diff /= oneday    // diff = diff / oneday
+console.log(`날짜의 뺄셈 : ${diff} 일`)
+// 소숫점 : 반올림, 내림, 올림 -> Math.round() , Math.floor(), Math.ceil()
+console.log(`날짜의 뺄셈 : ${Math.ceil(diff)} 일`)
+
+// 날짜 변경하기 : 년도, 월, 일 단위로 더하기 또는 빼기
+// today = new Date() 는 이미 선언된 상태
+let someday = new Date()
+// 예시) 오늘로부터 3년 후. 
+someday.setFullYear(someday.getFullYear() + 3)
+console.log(`3년 후 : ${someday.toString()}`)
+
+// 예시) 오늘로부터 3달 후.
+someday = new Date()
+someday.setMonth(someday.getMonth() + 3)
+console.log(`3달 후 : ${someday.toString()}`)
+
+// 예시) 오늘로부터 181일 후.
+someday = new Date()
+someday.setDate(someday.getDate() + 181)
+console.log(`181일 후 : ${someday.toString()}`)
+
+// input type="date"  입력요소는 형식이 'yyyy-MM-dd'
+// 값을 설정할 때에는 별도 코드 만들기
+function dateInputFmt(vdate) {   // 임의의 날짜입력 vdate
+  const year = vdate.getFullYear()
+  const month = vdate.getMonth() + 1
+  const datee = vdate.getDate()
+
+  return [year, month, datee].join('-')
+}
+console.log('dateInputFmt(new Date()) :', dateInputFmt(new Date()))

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>우리 펜션 예약</h3>
+  <hr>
+  <div>
+    입실날짜 : <input type="date" id="enterDate">
+  </div>
+  <script>
+    document.getElementById('enterDate').value = dateInputFmt(new Date())
+
+    function dateInputFmt(vdate) {   // 임의의 날짜입력 vdate
+      const year = vdate.getFullYear()
+      const month = (vdate.getMonth() + 1).toString().padStart(2, '0')
+      const datee = vdate.getDate().toString().padStart(2, '0')
+      return [year, month, datee].join('-')
+    }
+  </script>
+</body>
+
+</html>

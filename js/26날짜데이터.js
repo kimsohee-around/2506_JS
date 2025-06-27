@@ -81,12 +81,12 @@ someday = new Date()
 someday.setDate(someday.getDate() + 181)
 console.log(`181일 후 : ${someday.toString()}`)
 
-// input type="date"  입력요소는 형식이 'yyyy-MM-dd'
+// input type="date"  입력요소는 형식이 'yyyy-MM-dd' (자리수 중요)
 // 값을 설정할 때에는 별도 코드 만들기
 function dateInputFmt(vdate) {   // 임의의 날짜입력 vdate
   const year = vdate.getFullYear()
-  const month = vdate.getMonth() + 1
-  const datee = vdate.getDate()
+  const month = (vdate.getMonth() + 1).toString().padStart(2, '0')
+  const datee = vdate.getDate().toString().padStart(2, '0')
 
   return [year, month, datee].join('-')
 }

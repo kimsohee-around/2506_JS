@@ -8,6 +8,9 @@ const headers = {
 const query = '트와이스'
 const url = `https://dapi.kakao.com/v2/search/image?query=${query}&sort=recency`
 
+// 🔥 비동기 함수의 처리를 기다려야 하는 경우를 테스트
+//      ㄴ  result, result2 변수가 fetch 실행 결과를 받기 위한 예시
+
 let result
 // fetch 비동기 함수이므로 await로 실행완료까지 대기
 // 이렇게 쓰지 맙시다. => await , then 을 같이 사용하는 것은 추천하지 않는다.
